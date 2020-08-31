@@ -41,9 +41,6 @@ elif not Path(args.subdomain).exists() & Path(args.subdomain).is_file():
 else:
     sub_domains = args.subdomain
 
-if out_file is not None:
-    write_file = open(out_file, "w")
-
 server = dns.resolver.Resolver()
 server.nameservers = ['8.8.8.8']
 
@@ -60,8 +57,9 @@ def check(list, domain_name):
         for rdata in dnsans:
             print(f"{fdomain} is Found")
             if out_file is not None:
-                write_file = open(out_file, "a")
-                write_file.write(f"{fdomain}\n")
+                with open(out_file, 'a') as write_file:
+                    write_file.write(f"{fdomain}\n")
+                    write_file.close()
 
 with open(sub_domains, 'r') as file:
     for list in file.read().splitlines():

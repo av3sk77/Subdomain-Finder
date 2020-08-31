@@ -55,8 +55,7 @@ def check(list, domain_name):
     except (dns.resolver.NXDOMAIN, dns.resolver.NoAnswer, dns.resolver.NoNameservers):
         pass
     except (dns.name.EmptyLabel, dns.name.LabelTooLong):
-        print(f"Make Sure SubDomain file is Correct")
-        sys.exit()
+        pass
     else:
         for rdata in dnsans:
             print(f"{fdomain} is Found")

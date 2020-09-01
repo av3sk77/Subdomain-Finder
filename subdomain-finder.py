@@ -67,4 +67,5 @@ with open(sub_domains, 'r') as file:
     for list in file.read().splitlines():
         t = threading.Thread(target=check, args=(list, domain_name,))
         t.start()
-write_file.close()
+if out_file is not None:
+    write_file.close()

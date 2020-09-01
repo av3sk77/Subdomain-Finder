@@ -58,8 +58,8 @@ def check(list, domain_name):
             print(f"{fdomain} is Found")
             if out_file is not None:
                 with open(out_file, 'a') as write_file:
-                write_file.write(list + "\n")
-                write_file.close()
+                    write_file.write(list + "\n")
+                    write_file.close()
                     
 with open(sub_domains, 'r') as file:
     for list in file.read().splitlines():

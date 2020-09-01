@@ -7,6 +7,13 @@ print('''
 ╚══════╝ ╚═════╝ ╚═════╝ ╚═════╝  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝    ╚═╝     ╚═╝╚═╝  ╚═══╝╚═════╝ ╚══════╝╚═╝  ╚═╝
 ''')
 
+# Script Title: Subdomains-finder
+# SubDomain Brute Force Script
+# Date: 31-08-2020
+# Help Menu- python3 subdomain-finder.py -h
+# Script Usage- python3 subdomain-finder.py -d google.com -s subdomains.txt
+#!/usr/bin/python3
+
 from pathlib import Path
 import dns.resolver
 import argparse

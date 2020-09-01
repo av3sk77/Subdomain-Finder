@@ -44,6 +44,9 @@ else:
 server = dns.resolver.Resolver()
 server.nameservers = ['8.8.8.8']
 
+if out_file is not None:
+   write_file = open(out_file, "a")
+
 def check(list, domain_name):
     try:
         fdomain = f"{list}.{domain_name}"
@@ -57,11 +60,11 @@ def check(list, domain_name):
         for rdata in dnsans:
             print(f"{fdomain} is Found")
             if out_file is not None:
-                with open(out_file, 'a') as write_file:
-                    write_file.write(f"{fdomain}\n")
-                    write_file.close()
+                write_file.write(f"{fdomain}\n")
+                    
 
 with open(sub_domains, 'r') as file:
     for list in file.read().splitlines():
         t = threading.Thread(target=check, args=(list, domain_name,))
         t.start()
+write_file.close()
